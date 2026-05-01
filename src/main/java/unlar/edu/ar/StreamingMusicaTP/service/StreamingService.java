@@ -34,6 +34,6 @@ public class StreamingService {
     // 4. Distribucion por decadas
     public Map<Integer, List<Cancion>> agruparPorDecada(List<Cancion> catalogo) {
         return catalogo.stream()
-                .collect(Collectors.groupingBy(c -> (c.getFechaLanzamiento().getYear() / 10) 10));
+                .collect(Collectors.groupingBy(c -> (c.getFechaLanzamiento().getYear() / 10) * 10));
     }
 }
