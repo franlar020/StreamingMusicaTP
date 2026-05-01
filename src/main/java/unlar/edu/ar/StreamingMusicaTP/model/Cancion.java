@@ -15,6 +15,7 @@ public class Cancion {
     private String titulo;
     private String artista;
     private String album;
+    private Genero genero;
     private int duracionSegundos; // Duración en segundos
     private AtomicInteger reproducciones = new AtomicInteger(0); // Contador de reproducciones
     private double rating; // Calificación promedio de la canción
