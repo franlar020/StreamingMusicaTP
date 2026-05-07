@@ -3,11 +3,23 @@ package unlar.edu.ar.StreamingMusicaTP.service;
 import org.springframework.stereotype.Service;
 import unlar.edu.ar.StreamingMusicaTP.model.Cancion;
 import unlar.edu.ar.StreamingMusicaTP.model.Genero;
+import unlar.edu.ar.StreamingMusicaTP.service.strategy.RecomendacionStrategy;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service // Esto le dice a Spring que es un componente de lógica
 public class StreamingService {
+
+    private RecomendacionStrategy estrategia;
+
+    public void setEstrategia(RecomendacionStrategy estrategia) {
+        this.estrategia = estrategia;
+    }
+
+    public List<Cancion> ejecutarRecomendacion(List<Cancion> catalogo, Cancion base) {
+        return estrategia.recomendar(catalogo, base);
+    }
 
     // 1. Filtrado 
     public List<Cancion> filtrarCanciones(List<Cancion> catalogo, Genero genero, double ratingMinimo) {
