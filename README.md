@@ -1,9 +1,9 @@
 # Streaming Music REST API - UNLaR
 
-Plataforma de backend tipo Spotify desarrollada para la cátedra de **Programación Orientada a Objetos Avanzada**. El proyecto aplica procesamiento funcional, patrones de diseño y manejo de concurrencia.
+Plataforma de backend tipo Spotify desarrollada para la cátedra de **Programación 3**. El proyecto aplica procesamiento funcional, patrones de diseño y manejo de concurrencia.
 
 <p align="center">
-  <img src="https://www.reuters.com/resizer/v2/RLXKOPMF2JJ47OUQQB7MPTP4W4.jpg?auth=84ad223581307918ed72f4bdf958e1e0cb219731a3401beb161fd900ca26210d&width=1920&quality=80" alt="Cajero refencia" width="600"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/3840px-Spotify_logo_with_text.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20160123211747" alt="Cajero refencia" width="600"/>
 </p>
 
 ## Información Académica
