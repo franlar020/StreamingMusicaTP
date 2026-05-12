@@ -50,14 +50,15 @@ El sistema de recomendaciones utiliza el patrón **Strategy** para definir algor
 
 El sistema implementa un control de errores centralizado mediante `@ControllerAdvice` para asegurar respuestas HTTP consistentes:
 
-* **ResourceNotFoundException (404):** Se lanza cuando un recurso solicitado (Canción, Artista, etc.) no existe en el sistema.
-* **InvalidDataException (400):** Se lanza ante validaciones fallidas, como ratings fuera de rango (0.0 - 5.0) o duraciones inválidas.
+* **ResourceNotFoundException (404):** Se lanza cuando un recurso solicitado no existe en el sistema.
+* **InvalidDataException (400):** Se lanza ante validaciones fallidas, como ratings fuera de rango (0.0 - 5.0).
 
-``java
+```java
 public Cancion buscarPorId(UUID id) {
     return cancionRepository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("No se encontró la canción"));
-}```
+}
+```
 
 ## Análisis de Complejidad
 
