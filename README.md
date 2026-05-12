@@ -60,3 +60,29 @@ El sistema de recomendaciones utiliza el patrón **Strategy** para definir algor
 | `POST` | `/api/canciones/{id}/reproducir` | Incrementa el contador de reproducciones. |
 | `GET` | `/api/{recurso}` | Listado de entidades (artistas, albumes, productoras). |
 
+## 👨‍💻 Desarrolladores / Integrantes del equipo
+
+<p align="center">
+  <table align="center">
+    <tr>
+      <td align="center" valign="center" width="30%">
+        <a href="https://github.com/IsmaDeveloper16">
+          <img src="Imagenes necesarias/Isma.jpeg" width="300"/><br />
+          <sub><b>Ismael Flores</b></sub>
+        </a>
+      </td>
+      <td align="center" valign="center" width="30%">
+        <a href="https://github.com/franlar020">
+          <img src="Imagenes necesarias/Fran.jpeg" width="300"/><br />
+          <sub><b>Francisco Antonio Gonzalez</b></sub>
+        </a>
+      </td>
+      <td align="center" valign="center" width="30%">
+        <a href="https://github.com/VirginiaVeraHerrera">
+          <img src="Imagenes necesarias/Vir.jpeg" width="300"/><br />
+          <sub><b>Virginia Vera</b></sub>
+        </a>
+      </td>
+    </tr>
+  </table>
+</p>
