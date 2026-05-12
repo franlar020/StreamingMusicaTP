@@ -2,10 +2,18 @@
 
 Plataforma de backend tipo Spotify desarrollada para la cátedra de **Programación Orientada a Objetos Avanzada**. El proyecto aplica procesamiento funcional, patrones de diseño y manejo de concurrencia.
 
+<p align="center">
+  <img src="https://www.reuters.com/resizer/v2/RLXKOPMF2JJ47OUQQB7MPTP4W4.jpg?auth=84ad223581307918ed72f4bdf958e1e0cb219731a3401beb161fd900ca26210d&width=1920&quality=80" alt="Cajero refencia" width="600"/>
+</p>
+
 ## Información Académica
 * **Institución:** Universidad Nacional de La Rioja (UNLaR).
 * **Departamento:** DACEFYN (Departamento Académico de Ciencias Exactas, Físicas y Naturales).
 * **Proyecto:** Backend de Plataforma de Streaming de Música.
+
+<p align="center">
+  <img src="https://www.unlar.edu.ar/images/Identidad/Logo-UNLAR.png" alt="Cajero refencia" width="600"/>
+</p>
 
 ## Requisitos y Stack Tecnológico
 | Componente | Tecnología |
@@ -31,18 +39,6 @@ Se implementaron las siguientes funcionalidades avanzadas:
     * Artista más popular (máximo por reproducciones).
     * Distribución de catálogo por décadas.
 
-## Algoritmos y Complejidad Big O
-
-### Búsqueda Binaria por Título
-**Complejidad: $O(\log n)$**
-* Realizada sobre una lista preordenada mediante un comparador de orden natural.
-
-### Playlist Automática
-**Complejidad: $O(2^n)$**
-* Basada en el problema de la mochila (Knapsack), utilizando recursión para encontrar canciones que sumen una duración exacta.
-
-### Búsqueda Lineal
-* Implementada con predicados múltiples para criterios de género, año y rating.
 
 ## Patrón de Diseño: Strategy
 El sistema de recomendaciones utiliza el patrón **Strategy** para definir algoritmos intercambiables:
