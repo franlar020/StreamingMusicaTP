@@ -21,8 +21,8 @@ Plataforma de backend tipo Spotify desarrollada para la cátedra de **Programaci
 | **Lenguaje** | Java 21+ |
 | **Framework** | Spring Boot 4.x |
 | **API** | REST + Swagger/OpenAPI |
-| **Concurrencia** | AtomicInteger (Thread-safe) |
-| **Almacenamiento** | In-memory (H2 o ArrayList) |
+| **Concurrencia** | AtomicInteger |
+| **Almacenamiento** | In-memory (ArrayList) |
 | **Build Tool** | Maven |
 
 ## Modelo de Datos
