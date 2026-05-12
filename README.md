@@ -46,6 +46,25 @@ El sistema de recomendaciones utiliza el patrón **Strategy** para definir algor
 2. **Recomendación Por Popularidad:** Top 5 de las canciones más reproducidas globalmente.
 3. **Recomendación Descubrimiento:** Canciones con menos de 1000 reproducciones, de género diferente y lanzamiento reciente (< 2 años).
 
+## Manejo de Excepciones
+
+El sistema implementa un control de errores centralizado mediante `@ControllerAdvice` para asegurar respuestas HTTP consistentes:
+
+* **ResourceNotFoundException (404):** Se lanza cuando un recurso solicitado (Canción, Artista, etc.) no existe en el sistema.
+* **InvalidDataException (400):** Se lanza ante validaciones fallidas, como ratings fuera de rango (0.0 - 5.0) o duraciones inválidas.
+
+Ejemplo de implementación en la lógica de negocio:
+```java
+public Cancion buscarPorId(UUID id) {
+    return cancionRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("No se encontró la canción"));
+}
+
+## Análisis de Complejidad
+
+* **Búsqueda Binaria:** Presenta una complejidad de **O(log n)**. Es mucho más eficiente que una búsqueda lineal (O(n)) para grandes volúmenes de datos, ya que reduce el espacio de búsqueda a la mitad en cada iteración. Requiere que la colección esté ordenada previamente.
+* **Procesamiento con Streams:** Las operaciones de filtrado y mapeo tienen una complejidad de **O(n)**, ya que en el peor de los casos deben recorrer todos los elementos de la colección.
+
 ## Endpoints Principales
 
 | Método | Ruta | Descripción |

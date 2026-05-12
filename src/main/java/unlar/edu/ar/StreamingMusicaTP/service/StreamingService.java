@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import unlar.edu.ar.StreamingMusicaTP.model.Cancion;
 import unlar.edu.ar.StreamingMusicaTP.model.Genero;
 import unlar.edu.ar.StreamingMusicaTP.service.strategy.RecomendacionStrategy;
+import unlar.edu.ar.StreamingMusicaTP.exception.ResourceNotFoundException;
+import unlar.edu.ar.StreamingMusicaTP.exception.InvalidDataException;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -23,6 +25,10 @@ public class StreamingService {
 
     // 1. Filtrado 
     public List<Cancion> filtrarCanciones(List<Cancion> catalogo, Genero genero, double ratingMinimo) {
+        if (ratingMinimo < 0 || ratingMinimo > 5) {
+        throw new InvalidDataException("El rating minimo debe estar entre 0.0 y 5.0. Valor recibido: " + ratingMinimo);
+    }
+
         return catalogo.stream()
                 .filter(c -> c.getGenero().equals(genero))
                 .filter(c -> c.getRating() >= ratingMinimo)
@@ -38,9 +44,10 @@ public class StreamingService {
     }
 
     // 3. Artista más popular
-    public Optional<Cancion> obtenerArtistaMasPopular(List<Cancion> catalogo) {
+    public Cancion obtenerArtistaMasPopular(List<Cancion> catalogo) {
         return catalogo.stream()
-                .max(Comparator.comparingInt(c -> c.getReproducciones().get()));
+                .max(Comparator.comparingInt(c -> c.getReproducciones().get()))
+                .orElseThrow(() -> new ResourceNotFoundException("No se pudo determinar el artista mas popular porque el catalogo está vacio."));
     }
 
     // 4. Distribucion por decadas

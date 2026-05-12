@@ -10,15 +10,29 @@ public class BusquedaOrdenamientoService {
 
     // 1. Busqueda binaria por titulo (Requiere lista preordenada)
     public int busquedaBinariaPorTitulo(List<Cancion> canciones, String tituloBuscado) {
-        // Primero ordenamos por título como pide el PDF
-        canciones.sort(Comparator.comparing(Cancion::getTitulo, Comparator.naturalOrder()));
-        
-        // Creamos una canción "dummy" solo con el titulo para que binarySearch compare
-        Cancion dummy = new Cancion();
-        dummy.setTitulo(tituloBuscado);
-        
-        return Collections.binarySearch(canciones, dummy, Comparator.comparing(Cancion::getTitulo));
+    // 1. Primero ordenamos la lista por título
+    canciones.sort(Comparator.comparing(Cancion::getTitulo));
+
+    int inicio = 0;
+    int fin = canciones.size() - 1;
+
+    while (inicio <= fin) {
+        int medio = inicio + (fin - inicio) / 2;
+        String tituloMedio = canciones.get(medio).getTitulo();
+
+        int comparacion = tituloMedio.compareToIgnoreCase(tituloBuscado);
+
+        if (comparacion == 0) {
+            return medio; // Encontrado
+        }
+        if (comparacion < 0) {
+            inicio = medio + 1;
+        } else {
+            fin = medio - 1;
+        }
     }
+    return -1; // No encontrado
+}
 
     // 2. Ordenamiento personalizado (Artista -> Fecha Lanzamiento -> Invertido)
     public void ordenarPersonalizado(List<Cancion> canciones) {
