@@ -1,9 +1,9 @@
 # Streaming Music REST API - UNLaR
 
-Plataforma de backend tipo Spotify desarrollada para la cátedra de **Programación Orientada a Objetos Avanzada**. El proyecto aplica procesamiento funcional, patrones de diseño y manejo de concurrencia.
+Plataforma de backend tipo Spotify desarrollada para la cátedra de **Programación 3**. El proyecto aplica procesamiento funcional, patrones de diseño y manejo de concurrencia.
 
 <p align="center">
-  <img src="https://www.reuters.com/resizer/v2/RLXKOPMF2JJ47OUQQB7MPTP4W4.jpg?auth=84ad223581307918ed72f4bdf958e1e0cb219731a3401beb161fd900ca26210d&width=1920&quality=80" alt="Cajero refencia" width="600"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/3840px-Spotify_logo_with_text.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20160123211747" alt="Cajero refencia" width="600"/>
 </p>
 
 ## Información Académica
@@ -21,8 +21,8 @@ Plataforma de backend tipo Spotify desarrollada para la cátedra de **Programaci
 | **Lenguaje** | Java 21+ |
 | **Framework** | Spring Boot 4.x |
 | **API** | REST + Swagger/OpenAPI |
-| **Concurrencia** | AtomicInteger (Thread-safe) |
-| **Almacenamiento** | In-memory (H2 o ArrayList) |
+| **Concurrencia** | AtomicInteger |
+| **Almacenamiento** | In-memory (ArrayList) |
 | **Build Tool** | Maven |
 
 ## Modelo de Datos
@@ -50,15 +50,15 @@ El sistema de recomendaciones utiliza el patrón **Strategy** para definir algor
 
 El sistema implementa un control de errores centralizado mediante `@ControllerAdvice` para asegurar respuestas HTTP consistentes:
 
-* **ResourceNotFoundException (404):** Se lanza cuando un recurso solicitado (Canción, Artista, etc.) no existe en el sistema.
-* **InvalidDataException (400):** Se lanza ante validaciones fallidas, como ratings fuera de rango (0.0 - 5.0) o duraciones inválidas.
+* **ResourceNotFoundException (404):** Se lanza cuando un recurso solicitado no existe en el sistema.
+* **InvalidDataException (400):** Se lanza ante validaciones fallidas, como ratings fuera de rango (0.0 - 5.0).
 
-Ejemplo de implementación en la lógica de negocio:
 ```java
 public Cancion buscarPorId(UUID id) {
     return cancionRepository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("No se encontró la canción"));
 }
+```
 
 ## Análisis de Complejidad
 
