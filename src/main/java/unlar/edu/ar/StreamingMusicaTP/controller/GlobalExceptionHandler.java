@@ -11,7 +11,9 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@ControllerAdvice
+/*@ControllerAdvice(basePackages = "unlar.edu.ar.StreamingMusicaTP.controller")
+
+
 public class GlobalExceptionHandler {
 
     // Captura específicamente ResourceNotFoundException (404)
@@ -48,4 +50,4 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-}
+}*/
